@@ -108,8 +108,10 @@
   transition: opacity var(--transition);
 }
 
+/* Dimmed less than the sphere's 25%: this list is real text, and at 0.6 it still meets the
+   WCAG AA contrast ratio of 4.5:1 (5.2:1). 0.25 would drop it to 1.9:1, hard to read. */
 .skill-group--dimmed {
-  opacity: 0.25;
+  opacity: 0.6;
 }
 
 .skill-group__title {
