@@ -56,6 +56,7 @@ export const skills = [
   { name: 'OOP', category: 'practices', core: false },
   { name: 'Agile', category: 'practices', core: false },
   { name: 'Jira', category: 'practices', core: false },
+  { name: 'AI Agent', category: 'practices', core: true },
 ]
 
 // Quick lookup: category id → colour, e.g. categoryColor.ios === '#f05138'
