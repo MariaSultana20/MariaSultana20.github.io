@@ -1,0 +1,211 @@
+/* ---------- Image / placeholder (shared by both card types) ---------- */
+.project-image {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* like .scaleAspectFill */
+}
+
+/* Dark gradient with a teal tint, a big category icon and the project name. */
+.project-image--placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  background:
+    radial-gradient(circle at 30% 20%, rgba(100, 255, 218, 0.18), transparent 60%),
+    linear-gradient(135deg, #0d2030 0%, #071019 100%);
+  border: 1px solid var(--border);
+}
+
+.project-image__icon {
+  font-size: 3.5rem;
+  color: var(--accent);
+  opacity: 0.85;
+}
+
+.project-image__name {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.project-date {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Featured project ---------- */
+.featured-project {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--space-5);
+  align-items: center;
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid rgba(100, 255, 218, 0.35);
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(100, 255, 218, 0.06);
+  margin-bottom: var(--space-5);
+}
+
+.featured-project .project-image__icon {
+  font-size: 5rem;
+}
+
+.featured-project__badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 2px 10px;
+  margin-bottom: var(--space-2);
+}
+
+.featured-project__title {
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  line-height: 1.25;
+}
+
+.featured-project__highlights {
+  margin: var(--space-3) 0 var(--space-4);
+  padding-left: 1.1em;
+  color: var(--text-muted);
+}
+
+.featured-project__highlights li + li {
+  margin-top: var(--space-1);
+}
+
+.featured-project__highlights li::marker {
+  color: var(--accent);
+}
+
+.featured-project__button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+/* ---------- Filter tabs ---------- */
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.project-filters__button {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 6px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  transition:
+    color var(--transition),
+    border-color var(--transition),
+    background var(--transition);
+}
+
+.project-filters__button:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+/* Style by accessibility state, so the look always matches what screen readers announce. */
+.project-filters__button[aria-pressed='true'] {
+  color: var(--bg);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ---------- Grid of project cards ---------- */
+/* auto-fill + minmax: as many 340px+ columns as fit, stretched to fill the row.
+   One line gives a responsive grid: 2 columns on desktop, 1 on phones.
+   min(340px, 100%) stops a card from overflowing on screens narrower than 340px. */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
+  gap: var(--space-4);
+  list-style: none;
+}
+
+.project-grid > li {
+  display: flex; /* lets the card stretch to the row's height */
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: var(--space-3);
+  transition:
+    transform var(--transition),
+    border-color var(--transition);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(100, 255, 218, 0.4);
+}
+
+.project-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* fill the card so the GitHub link can sit at the bottom */
+  gap: var(--space-2);
+  padding-top: var(--space-3);
+}
+
+.project-card__title {
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.project-card__description {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.project-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-top: auto; /* pushes the link to the bottom of the card, like a Spacer() above it */
+  padding-top: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.project-grid__empty {
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  padding: var(--space-4) 0;
+}
+
+@media (max-width: 768px) {
+  .featured-project {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    padding: var(--space-3);
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
