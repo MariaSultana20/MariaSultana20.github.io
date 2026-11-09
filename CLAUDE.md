@@ -6,7 +6,7 @@ Always follow @PLAN.md. I'm an iOS engineer learning web dev — follow the Lear
 
 ## Project status
 
-A personal portfolio site for Maria Sultana. PLAN.md is the spec. It has every section's content, the links, colours, skill data, folder layout and build order. Build Order steps 1–4 are done: theme, navbar, Hero, About, the Skills sphere, Experience and Projects. Competitive Programming, Achievements and Contact are still placeholders (Step 5).
+A personal portfolio site for Maria Sultana. PLAN.md is the spec. It has every section's content, the links, colours, skill data, folder layout and build order. Build Order steps 1–5 are done: every section is built. Next are Step 6 (polish: Lighthouse, accessibility, SEO/Open Graph) and Step 7 (deploy).
 
 - Theme tokens live in `src/styles/theme.css` and global rules in `src/styles/global.css`. Each component keeps its own CSS file next to it (for example `Navbar/Navbar.css`).
 - Every section renders through the shared `src/components/Section/Section.jsx` wrapper.
@@ -23,6 +23,13 @@ A personal portfolio site for Maria Sultana. PLAN.md is the spec. It has every s
 - Projects:
   - `ProjectImage` renders `project.image`, or the category-icon placeholder when there is no image.
   - The project marked `featured: true` is shown above the filters and left out of the grid.
+- Competitive Programming:
+  - `useCodeforcesRating` fetches the live rating and caches it in `sessionStorage` under the key `codeforces:<handle>`.
+  - If the fetch fails, it falls back to `codeforcesFallback` in `data/contests.js`.
+  - Rank colours (`lib/codeforces.js`) follow Codeforces' own colours, lightened where needed so they're readable on the dark background.
+- Contact form:
+  - It POSTs `FormData` to `https://formspree.io/f/<formspreeId>`. The honeypot is Formspree's `_gotcha` field.
+  - While `formspreeId` in `links.js` is `null`, submitting shows a "not connected yet, email me" message instead of sending.
 - Skills sphere:
   - `Skills.jsx` owns the state (highlighted category, phone vs desktop, Reduce Motion) and the lazy loading.
   - `SkillSphere.jsx` is the separately downloaded file, with three.js, r3f and drei inside. Keep three.js imports out of every other file, or three.js ends up in the first page load.
