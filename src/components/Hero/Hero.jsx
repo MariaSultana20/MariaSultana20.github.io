@@ -9,14 +9,17 @@ import { resume } from '../../data/links'
 import './Hero.css'
 
 // framer-motion "variants": named animation states. The parent staggers its children,
-// so each line fades up shortly after the previous one (like a delayed withAnimation per row).
+// so each line slides up shortly after the previous one (like a delayed withAnimation per row).
+//
+// Only position animates, not opacity: the hero is the first thing people see, and the browser
+// (and Lighthouse's "Largest Contentful Paint") doesn't count text as shown while it's at opacity 0.
 const container = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.08 } },
 }
 const item = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+  hidden: { y: 16 },
+  visible: { y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 }
 
 export default function Hero() {
