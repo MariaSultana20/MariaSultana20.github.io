@@ -3,8 +3,9 @@
 
 export const resume = '/Maria-Sultana-CV.pdf'
 
-// Formspree form ID for the contact form. Set it in Step 5.
-export const formspreeId = null
+// Formspree form ID for the contact form: the part after /f/ in https://formspree.io/f/xzeelnpq
+// Not a secret; it's visible in the page source by design. Messages go to Maria's inbox.
+export const formspreeId = 'xzeelnpq'
 
 export const contact = {
   email: 'mailto:mariasultanaprofessional@gmail.com',
