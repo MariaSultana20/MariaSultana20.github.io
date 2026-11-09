@@ -109,22 +109,29 @@ export default function ContactForm() {
         <HiPaperAirplane aria-hidden="true" /> {isSending ? 'Sending…' : 'Send message'}
       </button>
 
-      {/* role="status" is read out politely; role="alert" interrupts, which suits errors. */}
+      {/* role="status" is read out politely; role="alert" interrupts, which suits errors.
+          The text sits in one <span> so the flex row has just two items: icon + text. */}
       {status === 'success' && (
         <p className="contact-form__message contact-form__message--success" role="status">
-          <HiCheckCircle aria-hidden="true" /> Thanks! Your message is on its way. I&apos;ll reply soon.
+          <HiCheckCircle aria-hidden="true" />
+          <span>Thanks! Your message is on its way. I&apos;ll reply soon.</span>
         </p>
       )}
       {status === 'error' && (
         <p className="contact-form__message contact-form__message--error" role="alert">
-          <HiExclamationCircle aria-hidden="true" /> {errorMessage} You can also email me at{' '}
-          <a href={contact.email}>{contact.emailAddress}</a>.
+          <HiExclamationCircle aria-hidden="true" />
+          <span>
+            {errorMessage} You can also email me at <a href={contact.email}>{contact.emailAddress}</a>.
+          </span>
         </p>
       )}
       {status === 'not-configured' && (
         <p className="contact-form__message contact-form__message--error" role="alert">
-          <HiExclamationCircle aria-hidden="true" /> The contact form isn&apos;t connected yet. Please email me
-          directly at <a href={contact.email}>{contact.emailAddress}</a>.
+          <HiExclamationCircle aria-hidden="true" />
+          <span>
+            The contact form isn&apos;t connected yet. Please email me directly at{' '}
+            <a href={contact.email}>{contact.emailAddress}</a>.
+          </span>
         </p>
       )}
     </form>
