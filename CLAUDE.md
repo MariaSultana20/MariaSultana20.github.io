@@ -42,7 +42,7 @@ A personal portfolio site for Maria Sultana. PLAN.md is the spec. It has every s
   - `Skills.jsx` owns the state (highlighted category, phone vs desktop, Reduce Motion) and the lazy loading.
   - `SkillSphere.jsx` is the separately downloaded file, with three.js, r3f and drei inside. Keep three.js imports out of every other file, or three.js ends up in the first page load.
   - Labels use the self-hosted font `public/fonts/inter-latin-600.woff`, because drei `<Text>` needs a woff or ttf file.
-  - The radius values (16 desktop, 14 phone) are sized so the widest labels don't get cut off at the canvas edge. Re-check this when adding long skill names.
+  - The radius is 18 on desktop and 16 on phones. At 18, the widest label ("Live Activities") can be clipped at the canvas edge when it swings to the front; 16 is the largest desktop radius that fits every label.
   - The labels sit inside a rotating group, so billboarding uses `inverse(parent rotation) × camera rotation`, not a plain copy of the camera's rotation.
 - `src/hooks/useActiveSection.js` drives the navbar highlight. The nav items are listed in `Navbar.jsx`.
 
