@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { HiMenu, HiX } from 'react-icons/hi'
 import { resume } from '../../data/links'
 import { useActiveSection } from '../../hooks/useActiveSection'
@@ -21,7 +21,23 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const activeId = useActiveSection(SECTION_IDS)
 
+  const toggleRef = useRef(null)
+
   const closeMenu = () => setIsMenuOpen(false)
+
+  // While the phone menu is open, Escape closes it and puts keyboard focus back on the
+  // menu button, so keyboard users aren't left focused on a hidden link.
+  useEffect(() => {
+    if (!isMenuOpen) return
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false)
+        toggleRef.current?.focus()
+      }
+    }
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown) // cleanup when closed
+  }, [isMenuOpen])
 
   return (
     <header className="navbar">
@@ -33,6 +49,7 @@ export default function Navbar() {
 
         {/* Only visible below 768px (see the media query in Navbar.css). */}
         <button
+          ref={toggleRef}
           type="button"
           className="navbar__toggle"
           aria-expanded={isMenuOpen}
