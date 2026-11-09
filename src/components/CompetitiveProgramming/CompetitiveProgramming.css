@@ -1,0 +1,174 @@
+/* Three profile cards in a row; they wrap to one column on narrow screens. */
+.cp-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.cp-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: var(--space-4);
+}
+
+.cp-card--highlight {
+  justify-content: center;
+  border-color: rgba(100, 255, 218, 0.35);
+  text-align: center;
+  gap: var(--space-1);
+}
+
+.cp-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.cp-card__header h3 {
+  font-size: 1.1rem;
+}
+
+.cp-card__icon {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.cp-card__live {
+  margin-left: auto; /* push to the right edge, like a Spacer() before it */
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+}
+
+/* <dl> is a "description list": term (dt) + value (dd) pairs, like a two-column Form row. */
+.cp-card__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.cp-card__stats dt {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.cp-card__stats dd {
+  font-size: 1rem;
+}
+
+.cp-card__stats strong,
+.cp-card__fallback strong {
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+.cp-rank {
+  font-weight: 600;
+}
+
+.cp-stars {
+  color: #ffb300 !important; /* CodeChef star colour */
+}
+
+.cp-card__fallback {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1);
+}
+
+.cp-card__note {
+  flex-basis: 100%;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.cp-card__big {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.1;
+}
+
+.cp-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-top: auto;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+/* ---------- Contest results ---------- */
+.cp-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: var(--space-3);
+}
+
+.cp-results {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Icon | text | link, as one row. */
+.cp-result {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+  transition: border-color var(--transition);
+}
+
+.cp-result:hover {
+  border-color: rgba(100, 255, 218, 0.4);
+}
+
+.cp-result__icon {
+  font-size: 1.3rem;
+  color: #ffb300;
+}
+
+.cp-result__place {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.cp-result__meta {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.cp-result__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  /* Put the Standings link under the text instead of beside it. */
+  .cp-result {
+    grid-template-columns: auto 1fr;
+    padding: var(--space-3);
+  }
+
+  .cp-result__link {
+    grid-column: 2;
+  }
+}
