@@ -1,0 +1,18 @@
+.social-links {
+  display: flex;
+  gap: var(--space-3);
+  list-style: none;
+}
+
+.social-links a {
+  display: flex;
+  color: var(--text-muted);
+  transition:
+    color var(--transition),
+    transform var(--transition);
+}
+
+.social-links a:hover {
+  color: var(--accent);
+  transform: translateY(-3px);
+}
