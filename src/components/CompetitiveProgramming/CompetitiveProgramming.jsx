@@ -57,7 +57,7 @@ export default function CompetitiveProgramming() {
             </div>
           </dl>
           <a className="cp-card__link" href={codechef.url} target="_blank" rel="noopener noreferrer">
-            Profile <HiExternalLink aria-hidden="true" />
+            @{codechef.handle} <HiExternalLink aria-hidden="true" />
           </a>
         </article>
 

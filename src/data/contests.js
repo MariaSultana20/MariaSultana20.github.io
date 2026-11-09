@@ -11,6 +11,7 @@ export const codeforces = {
 }
 
 export const codechef = {
+  handle: 'maria_sultana',
   stars: '3★',
   maxRating: 1663,
   url: profiles.codechef,
