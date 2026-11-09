@@ -6,18 +6,23 @@ Always follow @PLAN.md. I'm an iOS engineer learning web dev — follow the Lear
 
 ## Project status
 
-A personal portfolio site for Maria Sultana. PLAN.md is the spec. It has every section's content, the links, colours, skill data, folder layout and build order. Build Order steps 1–3 are done: theme, navbar, Hero, About and the Skills sphere. The other sections are still placeholders, and each later step fills in its own.
+A personal portfolio site for Maria Sultana. PLAN.md is the spec. It has every section's content, the links, colours, skill data, folder layout and build order. Build Order steps 1–4 are done: theme, navbar, Hero, About, the Skills sphere, Experience and Projects. Competitive Programming, Achievements and Contact are still placeholders (Step 5).
 
 - Theme tokens live in `src/styles/theme.css` and global rules in `src/styles/global.css`. Each component keeps its own CSS file next to it (for example `Navbar/Navbar.css`).
 - Every section renders through the shared `src/components/Section/Section.jsx` wrapper.
   - The `<section>` is full width and the inner div is centred.
   - An optional `background` prop draws behind the content; the Hero uses it for its starfield.
 - Shared pieces:
-  - `.button` / `.button--primary` and `.sr-only` live in `global.css`
+  - `.button` / `.button--primary`, `.tag` / `.tag-list` and `.sr-only` live in `global.css`
+  - Scroll-reveal presets live in `src/lib/motion.js`. Spread `{...reveal}` or `{...revealWithDelay(n)}` onto a `motion.*` element.
+  - Toggle buttons (skill chips, project filters) use `aria-pressed`, and their CSS selects on `[aria-pressed='true']`.
   - `SocialLinks` is reusable; pick icons with its `only` prop
   - `App.jsx` wraps everything in `<MotionConfig reducedMotion="user">`
 - The Hero starfield is a plain 2D `<canvas>`, not three.js, so three.js stays out of the first page load.
 - The profile photo is `public/images/profile.jpg`.
+- Projects:
+  - `ProjectImage` renders `project.image`, or the category-icon placeholder when there is no image.
+  - The project marked `featured: true` is shown above the filters and left out of the grid.
 - Skills sphere:
   - `Skills.jsx` owns the state (highlighted category, phone vs desktop, Reduce Motion) and the lazy loading.
   - `SkillSphere.jsx` is the separately downloaded file, with three.js, r3f and drei inside. Keep three.js imports out of every other file, or three.js ends up in the first page load.
