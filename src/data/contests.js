@@ -1,14 +1,13 @@
 // Competitive programming content (PLAN.md §3.7).
 import { contests as standings, profiles } from './links'
 
-export const codeforcesHandle = 'Maria_Sultana'
-
-// Shown if the live Codeforces request fails (offline, API down, …).
-export const codeforcesFallback = {
-  rating: null, // unknown without the API
-  rank: null,
+// Static values, no live API call. Update these by hand when the rating changes.
+export const codeforces = {
+  handle: 'Maria_Sultana',
+  maxRank: 'Specialist',
+  maxRankColor: '#03a89e', // Codeforces' own colour for Specialist (cyan)
   maxRating: 1441,
-  maxRank: 'specialist',
+  url: profiles.codeforces,
 }
 
 export const codechef = {
