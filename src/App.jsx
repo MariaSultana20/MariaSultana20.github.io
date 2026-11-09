@@ -17,9 +17,15 @@ export default function App() {
     // reducedMotion="user": when the system's Reduce Motion is on, framer-motion skips
     // movement (slides, scales) and keeps only fades, for every animation in the app.
     <MotionConfig reducedMotion="user">
+      {/* Skip link: the first thing Tab reaches. It lets keyboard and screen-reader users
+          jump past the navbar. It's hidden until it receives focus (see global.css). */}
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
       <Navbar />
-      {/* <main> is semantic HTML: it tells screen readers where the main content is. */}
-      <main>
+      {/* <main> is semantic HTML: it tells screen readers where the main content is.
+          tabIndex={-1} lets the skip link move keyboard focus here. */}
+      <main id="main" tabIndex={-1}>
         <Hero />
         <About />
         <Experience />

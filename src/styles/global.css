@@ -93,6 +93,32 @@ img {
   background: var(--accent-soft);
 }
 
+/* "Skip to content": parked above the screen, slides into view when it gets keyboard focus. */
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 200; /* above the navbar */
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  transform: translateY(-150%);
+  transition: transform var(--transition);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  color: var(--bg);
+}
+
+/* <main> receives focus from the skip link; no outline needed around the whole page. */
+main:focus {
+  outline: none;
+}
+
 /* Visible keyboard focus, for people who navigate with Tab. */
 :focus-visible {
   outline: 2px solid var(--accent);
