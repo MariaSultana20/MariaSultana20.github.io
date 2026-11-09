@@ -56,31 +56,23 @@ section {
   scroll-margin-top: var(--nav-height);
 }
 
-/* Shared section container: centred, with a max width. */
+/* Shared section: full width, with the content centred inside. */
 .section {
+  position: relative; /* lets a background layer be positioned inside it */
+  padding: var(--space-6) 0;
+}
+
+.section__inner {
+  position: relative; /* sits above the background layer */
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: var(--space-6) var(--gutter);
+  padding: 0 var(--gutter);
 }
 
 .section__title {
   font-size: clamp(1.6rem, 4vw, 2.2rem);
   font-weight: 700;
   margin-bottom: var(--space-4);
-}
-
-/* Hero fills the first screen and sits below the fixed navbar. */
-#hero {
-  min-height: 100vh; /* vh = percent of the viewport (window) height */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: var(--nav-height);
-}
-
-#hero h1 {
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  line-height: 1.2;
 }
 
 .footer {
