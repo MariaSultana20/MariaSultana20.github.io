@@ -12,6 +12,12 @@ A personal portfolio site for Maria Sultana. PLAN.md is the spec. It has every s
 - Every section renders through the shared `src/components/Section/Section.jsx` wrapper.
 - `src/hooks/useActiveSection.js` drives the navbar highlight. The nav items are listed in `Navbar.jsx`.
 
+## Git workflow
+
+- Commit in each smallest step with a meaningful commit message: one logical piece per commit (a data file, a hook, a component, its styles). Don't wait until a whole Build Order step is finished.
+- Run `npm run lint` before each commit.
+- The remote is `origin` → `https://github.com/MariaSultana20/MariaSultana20.github.io` (branch `main`). Push after each completed piece of work.
+
 ## Commands
 
 ```bash
