@@ -6,10 +6,18 @@ Always follow @PLAN.md. I'm an iOS engineer learning web dev — follow the Lear
 
 ## Project status
 
-A personal portfolio site for Maria Sultana. PLAN.md is the spec. It has every section's content, the links, colours, skill data, folder layout and build order. Build Order step 1 is done: theme, navbar and placeholder components for every section. Each later step fills in its sections.
+A personal portfolio site for Maria Sultana. PLAN.md is the spec. It has every section's content, the links, colours, skill data, folder layout and build order. Build Order steps 1–2 are done: theme, navbar, Hero and About. The other sections are still placeholders, and each later step fills in its own.
 
 - Theme tokens live in `src/styles/theme.css` and global rules in `src/styles/global.css`. Each component keeps its own CSS file next to it (for example `Navbar/Navbar.css`).
 - Every section renders through the shared `src/components/Section/Section.jsx` wrapper.
+  - The `<section>` is full width and the inner div is centred.
+  - An optional `background` prop draws behind the content; the Hero uses it for its starfield.
+- Shared pieces:
+  - `.button` / `.button--primary` and `.sr-only` live in `global.css`
+  - `SocialLinks` is reusable; pick icons with its `only` prop
+  - `App.jsx` wraps everything in `<MotionConfig reducedMotion="user">`
+- The Hero starfield is a plain 2D `<canvas>`, not three.js, so three.js stays out of the first page load.
+- The profile photo is `public/images/profile.jpg`.
 - `src/hooks/useActiveSection.js` drives the navbar highlight. The nav items are listed in `Navbar.jsx`.
 
 ## Git workflow
@@ -59,4 +67,4 @@ There is no test framework or TypeScript. The project is plain JS/JSX (ES module
 - The phone number in the CV must **never** appear on the site.
 - Static assets in `public/`:
   - `Maria-Sultana-CV.pdf`, which the Resume and Download CV buttons link to
-  - the profile photo `public/images/Maria Sultana.jpeg` (the filename has a space, so URL-encode it or rename it; PLAN.md calls it `profile.jpg`)
+  - The CV PDF is in `.gitignore` because it contains the phone number. It exists only locally until a version without the phone number replaces it.
