@@ -6,7 +6,7 @@ Always follow @PLAN.md. I'm an iOS engineer learning web dev — follow the Lear
 
 ## Project status
 
-A personal portfolio site for Maria Sultana. PLAN.md is the spec. It has every section's content, the links, colours, skill data, folder layout and build order. Build Order steps 1–6 are done. Lighthouse scores: mobile 98 / 100 / 100 / 100, desktop 100 / 100 / 100 / 100 (Performance / Accessibility / Best Practices / SEO). Step 7 (deploy) is next.
+A personal portfolio site for Maria Sultana. PLAN.md is the spec. It has every section's content, the links, colours, skill data, folder layout and build order. All 7 Build Order steps are done; the site is live at https://mariasultana20.github.io. Lighthouse scores: mobile 98 / 100 / 100 / 100, desktop 100 / 100 / 100 / 100 (Performance / Accessibility / Best Practices / SEO).
 
 - Fonts are self-hosted from `public/fonts/` and declared in `src/styles/fonts.css`. Don't add Google Fonts back: the extra request blocks rendering.
 - The hero animates only position, not opacity, so its text counts as painted right away for Largest Contentful Paint (LCP).
@@ -70,7 +70,7 @@ There is no test framework or TypeScript. The project is plain JS/JSX (ES module
 - `framer-motion` for scroll-reveal animations
 - `react-icons` for icons
 - Contact form: Formspree. There is no backend. The endpoint ID goes in `src/data/links.js`.
-- Deploy target: GitHub Pages at `https://mariasultana20.github.io` through GitHub Actions, with Vite `base: '/'`.
+- Deploy: every push to `main` runs `.github/workflows/deploy.yml` (npm ci → lint → build → GitHub Pages). The Pages source is set to "GitHub Actions" in the repo settings. Vite `base` is `/`.
 
 ## Intended architecture (from Plan.md)
 
