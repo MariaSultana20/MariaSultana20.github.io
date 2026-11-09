@@ -1,0 +1,79 @@
+/* Two columns on desktop: text (wider) and photo.
+   CSS Grid: "1.6fr 1fr" splits the free space 1.6 : 1, like two flexible columns. */
+.about {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: var(--space-5);
+  align-items: center;
+}
+
+.about__summary {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-5);
+}
+
+/* 2 × 2 grid of stat tiles. */
+.about__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+}
+
+.stat__value {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 700;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums; /* equal-width digits, so counting doesn't wobble */
+  line-height: 1.2;
+}
+
+.stat__label {
+  margin-top: var(--space-1);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Photo: rounded, teal border and glow, crops the tall portrait around the face. */
+.about__photo {
+  justify-self: center;
+  width: 100%;
+  max-width: 320px;
+}
+
+.about__photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover; /* like UIView.ContentMode.scaleAspectFill */
+  object-position: center 30%; /* keep the face in frame */
+  border-radius: 16px;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 32px rgba(100, 255, 218, 0.25);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.about__photo img:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(100, 255, 218, 0.35);
+}
+
+/* Phones: stack the photo above the text. */
+@media (max-width: 768px) {
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .about__photo {
+    order: -1; /* show the photo first, like reordering views in a VStack */
+    max-width: 240px;
+  }
+}
