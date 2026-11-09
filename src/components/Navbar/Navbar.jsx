@@ -43,7 +43,8 @@ export default function Navbar() {
     <header className="navbar">
       <nav className="navbar__inner" aria-label="Main">
         {/* href="#hero" is an anchor link: it scrolls to the element with id="hero". */}
-        <a href="#hero" className="navbar__logo" onClick={closeMenu} aria-label="Maria Sultana, back to top">
+        {/* The label starts with the visible text "MS", so voice control ("click MS") still finds it. */}
+        <a href="#hero" className="navbar__logo" onClick={closeMenu} aria-label="MS, Maria Sultana, back to top">
           MS
         </a>
 
