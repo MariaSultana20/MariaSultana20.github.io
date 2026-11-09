@@ -129,24 +129,21 @@ You already know most of the ideas behind modern web development. React works a 
 
 ### Step 5 — Competitive Programming, Achievements, Contact
 **You'll learn:**
-- **Fetching data from an API:** the live Codeforces rating.
-  ```js
-  const res = await fetch('https://codeforces.com/api/user.info?handles=Maria_Sultana');
-  const data = await res.json();
-  ```
-  This is almost identical to `URLSession.shared.data(from:)`.
-- **Loading, error and fallback states:** like handling `Result` in Swift.
-- **`sessionStorage` caching:** like a short-lived `UserDefaults`.
-- **CORS:** why some APIs work from the browser and others don't. Codeforces allows browser requests.
+- **Static data cards:** the Codeforces and CodeChef cards read fixed values from `src/data/contests.js`, the same data-driven pattern as Step 4.
 - **Forms in React:**
-  - Controlled inputs (`value` + `onChange`)
-  - Submitting with `fetch` (POST) to Formspree
-  - Showing success and error states
+  - Controlled inputs (`value` + `onChange`), like `TextField` bound to `@State`
+  - `event.preventDefault()` stops the browser's default page reload on submit
+- **Sending data with `fetch`:** a POST to Formspree.
+  ```js
+  const response = await fetch('https://formspree.io/f/<id>', { method: 'POST', body: new FormData(form) });
+  ```
+  This is almost identical to `URLSession.shared.upload(for:from:)`.
+- **Sending, success and error states:** like handling `Result` in Swift.
 - **Honeypot fields:** a simple spam-trap trick.
 
 **Check yourself:**
-- [ ] Open DevTools → **Network** and find the Codeforces API request. Read its JSON.
-- [ ] Turn off Wi-Fi and reload. Does the fallback rating appear?
+- [ ] Change the Codeforces max rating in `src/data/contests.js` and watch the card update.
+- [ ] Open DevTools → **Network**, submit the contact form, and find the POST request to Formspree. Read its response.
 - [ ] Submit the contact form and check that the email reaches your inbox.
 
 ### Step 6 — Polish: Responsive, Accessibility, Performance, SEO
