@@ -4,7 +4,7 @@
 export const name = 'Maria Sultana'
 
 // The typing animation in the Hero cycles through these.
-export const heroTitles = ['Software Engineer', 'Tech Enthusiast', 'iOS Specialist']
+export const heroTitles = ['Software Engineer', 'iOS Specialist',  'Competitive Programmer', 'Problem Solver', 'Samsung SmartThings Developer', 'Tech Enthusiast']
 
 export const tagline =
   'I build polished iOS apps at Samsung and solve algorithmic problems for fun.'
