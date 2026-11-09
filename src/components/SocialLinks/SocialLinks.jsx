@@ -1,14 +1,17 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { HiMail } from 'react-icons/hi'
+import { SiCodechef, SiCodeforces, SiLeetcode } from 'react-icons/si'
 import { contact, profiles } from '../../data/links'
 import './SocialLinks.css'
 
 // Every social link the site can show. A component picks some of them with the `only` prop.
-// (Codeforces, CodeChef and LeetCode are added in Step 5 for the Contact section.)
 const ALL_LINKS = {
   github: { label: 'GitHub', href: profiles.github, Icon: FaGithub },
   linkedin: { label: 'LinkedIn', href: profiles.linkedin, Icon: FaLinkedin },
   email: { label: 'Email', href: contact.email, Icon: HiMail },
+  codeforces: { label: 'Codeforces', href: profiles.codeforces, Icon: SiCodeforces },
+  codechef: { label: 'CodeChef', href: profiles.codechef, Icon: SiCodechef },
+  leetcode: { label: 'LeetCode', href: profiles.leetcode, Icon: SiLeetcode },
 }
 
 export default function SocialLinks({ only = Object.keys(ALL_LINKS) }) {
