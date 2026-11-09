@@ -6,7 +6,18 @@ Always follow @PLAN.md. I'm an iOS engineer learning web dev — follow the Lear
 
 ## Project status
 
-A personal portfolio site for Maria Sultana. PLAN.md is the spec. It has every section's content, the links, colours, skill data, folder layout and build order. Build Order steps 1–5 are done: every section is built. Next are Step 6 (polish: Lighthouse, accessibility, SEO/Open Graph) and Step 7 (deploy).
+A personal portfolio site for Maria Sultana. PLAN.md is the spec. It has every section's content, the links, colours, skill data, folder layout and build order. Build Order steps 1–6 are done. Lighthouse scores: mobile 98 / 100 / 100 / 100, desktop 100 / 100 / 100 / 100 (Performance / Accessibility / Best Practices / SEO). Step 7 (deploy) is next.
+
+- Fonts are self-hosted from `public/fonts/` and declared in `src/styles/fonts.css`. Don't add Google Fonts back: the extra request blocks rendering.
+- The hero animates only position, not opacity, so its text counts as painted right away for Largest Contentful Paint (LCP).
+- SEO and Open Graph tags plus JSON-LD live in `index.html`.
+  - The Open Graph image is `public/og-image.jpg`, generated from `scripts/og-image.html` with `npm run og-image` (macOS + Chrome).
+  - `public/robots.txt` and `public/sitemap.xml` use the production URL.
+- The About photo is `public/images/profile-480.jpg`, a 4:5 crop of `profile.jpg`.
+- Accessibility:
+  - The skip link (`.skip-link`) targets `<main id="main">`.
+  - Escape closes the phone menu.
+  - Dimmed text must stay at 4.5:1 contrast or better, which is why the skill list dims to 0.6 while the sphere dims to 0.25.
 
 - Theme tokens live in `src/styles/theme.css` and global rules in `src/styles/global.css`. Each component keeps its own CSS file next to it (for example `Navbar/Navbar.css`).
 - Every section renders through the shared `src/components/Section/Section.jsx` wrapper.
