@@ -38,13 +38,6 @@
   color: var(--accent);
 }
 
-.cp-card__live {
-  margin-left: auto; /* push to the right edge, like a Spacer() before it */
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--accent);
-}
-
 /* <dl> is a "description list": term (dt) + value (dd) pairs, like a two-column Form row. */
 .cp-card__stats {
   display: grid;
@@ -62,25 +55,13 @@
   font-size: 1rem;
 }
 
-.cp-card__stats strong,
-.cp-card__fallback strong {
+.cp-card__stats strong {
   font-size: 1.5rem;
   color: var(--text);
 }
 
-.cp-rank {
-  font-weight: 600;
-}
-
 .cp-stars {
   color: #ffb300 !important; /* CodeChef star colour */
-}
-
-.cp-card__fallback {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: var(--space-1);
 }
 
 .cp-card__note {
