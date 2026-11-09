@@ -93,4 +93,4 @@ There is no test framework or TypeScript. The project is plain JS/JSX (ES module
 - The phone number in the CV must **never** appear on the site.
 - Static assets in `public/`:
   - `Maria-Sultana-CV.pdf`, which the Resume and Download CV buttons link to
-  - The CV PDF is in `.gitignore` because it contains the phone number. It exists only locally until a version without the phone number replaces it.
+  - The committed CV has no phone number. Before committing a replacement CV, check its text, links and metadata for the phone number.

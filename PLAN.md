@@ -296,5 +296,6 @@ maria-portfolio/
 - [x] Profile photo (in `public/images/`)
 - [x] ICPC standings link confirmed
 - [ ] Project screenshots: later. Placeholders are shown until they're added.
-- [ ] Formspree endpoint ID: later. Create a form at formspree.io before building the Contact section
-- [ ] Create the GitHub repo `MariaSultana20.github.io` before deploying. Create it using the browser.
+- [x] Formspree endpoint ID (`xzeelnpq`, in `src/data/links.js`)
+- [x] GitHub repo `MariaSultana20.github.io` created; deployed by `.github/workflows/deploy.yml`
+- [x] CV without the phone number (`public/Maria-Sultana-CV.pdf`)
