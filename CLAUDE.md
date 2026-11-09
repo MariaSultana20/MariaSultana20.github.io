@@ -6,7 +6,7 @@ Always follow @PLAN.md. I'm an iOS engineer learning web dev — follow the Lear
 
 ## Project status
 
-A personal portfolio site for Maria Sultana. PLAN.md is the spec. It has every section's content, the links, colours, skill data, folder layout and build order. Build Order steps 1–2 are done: theme, navbar, Hero and About. The other sections are still placeholders, and each later step fills in its own.
+A personal portfolio site for Maria Sultana. PLAN.md is the spec. It has every section's content, the links, colours, skill data, folder layout and build order. Build Order steps 1–3 are done: theme, navbar, Hero, About and the Skills sphere. The other sections are still placeholders, and each later step fills in its own.
 
 - Theme tokens live in `src/styles/theme.css` and global rules in `src/styles/global.css`. Each component keeps its own CSS file next to it (for example `Navbar/Navbar.css`).
 - Every section renders through the shared `src/components/Section/Section.jsx` wrapper.
@@ -18,6 +18,12 @@ A personal portfolio site for Maria Sultana. PLAN.md is the spec. It has every s
   - `App.jsx` wraps everything in `<MotionConfig reducedMotion="user">`
 - The Hero starfield is a plain 2D `<canvas>`, not three.js, so three.js stays out of the first page load.
 - The profile photo is `public/images/profile.jpg`.
+- Skills sphere:
+  - `Skills.jsx` owns the state (highlighted category, phone vs desktop, Reduce Motion) and the lazy loading.
+  - `SkillSphere.jsx` is the separately downloaded file, with three.js, r3f and drei inside. Keep three.js imports out of every other file, or three.js ends up in the first page load.
+  - Labels use the self-hosted font `public/fonts/inter-latin-600.woff`, because drei `<Text>` needs a woff or ttf file.
+  - The radius values (16 desktop, 14 phone) are sized so the widest labels don't get cut off at the canvas edge. Re-check this when adding long skill names.
+  - The labels sit inside a rotating group, so billboarding uses `inverse(parent rotation) × camera rotation`, not a plain copy of the camera's rotation.
 - `src/hooks/useActiveSection.js` drives the navbar highlight. The nav items are listed in `Navbar.jsx`.
 
 ## Git workflow
