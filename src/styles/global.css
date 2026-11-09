@@ -1,0 +1,127 @@
+/* A small reset: browsers add their own default margins and sizing. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* width includes padding and border, like a UIView frame */
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Anchor links (href="#about") animate the scroll instead of jumping. */
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Visible keyboard focus, for people who navigate with Tab. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* The navbar is fixed, so leave room for it when jumping to a section. */
+section {
+  scroll-margin-top: var(--nav-height);
+}
+
+/* Shared section container: centred, with a max width. */
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-6) var(--gutter);
+}
+
+.section__title {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+}
+
+/* Hero fills the first screen and sits below the fixed navbar. */
+#hero {
+  min-height: 100vh; /* vh = percent of the viewport (window) height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: var(--nav-height);
+}
+
+#hero h1 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.2;
+}
+
+.footer {
+  padding: var(--space-4) var(--gutter);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+.placeholder {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Hidden on screen but read by screen readers (like accessibilityLabel). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* The web version of iOS's Reduce Motion setting. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
