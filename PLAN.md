@@ -207,13 +207,9 @@ Project data lives in `src/data/projects.js`.
 - To add one later, drop the file into `public/images/projects/` and set `image: '/images/projects/<file>'`. No component changes are needed.
 
 ### 3.7 Competitive Programming
-- **Profile cards:**
-  - **Codeforces (live):** fetch `https://codeforces.com/api/user.info?handles=Maria_Sultana` when the card renders.
-    - Show the current rating, rank, max rating (1441) and max rank.
-    - Colour the rank in Codeforces' own colours (Specialist = cyan).
-    - If the request fails, fall back to the static values "Specialist, max rating 1441".
-    - Cache the response in `sessionStorage` so the API isn't called again on the same visit.
-  - **CodeChef:** 3★, max rating 1663
+- **Profile cards** (static values in `src/data/contests.js`; no live API calls). Each card's link shows the real handle:
+  - **Codeforces:** max rank **Specialist** (in Codeforces' cyan, `#03a89e`), max rating 1441. Link: `@Maria_Sultana`
+  - **CodeChef:** 3★, max rating 1663. Link: `@maria_sultana`
   - **1,600+ problems** solved across Codeforces, CodeChef, LeetCode and other judges
 - **Contest results** (each with a "Standings" link):
   - 6th / 104 teams, National Girls' Programming Contest 2022 (Feb 2023), Team MIST Object Grind
