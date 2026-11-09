@@ -25,3 +25,6 @@ dist-ssr
 
 # Claude Code personal settings
 .claude/settings.local.json
+
+# CV contains private contact details; keep it out of the public repo
+public/Maria-Sultana-CV.pdf
