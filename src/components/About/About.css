@@ -50,6 +50,7 @@
 
 .about__photo img {
   width: 100%;
+  height: auto; /* override the height="" attribute so aspect-ratio can apply */
   aspect-ratio: 4 / 5;
   object-fit: cover; /* like UIView.ContentMode.scaleAspectFill */
   object-position: center 30%; /* keep the face in frame */
