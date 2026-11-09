@@ -76,6 +76,23 @@ img {
   color: var(--bg);
 }
 
+/* Small monospace "tech tag" pills (Experience and Projects). */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
 /* Visible keyboard focus, for people who navigate with Tab. */
 :focus-visible {
   outline: 2px solid var(--accent);
