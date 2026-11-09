@@ -1,3 +1,4 @@
+import { MotionConfig } from 'framer-motion'
 import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
 import About from './components/About/About'
@@ -13,7 +14,9 @@ import Footer from './components/Contact/Footer'
 // It's a single scrolling page: the sections stack top to bottom, like a VStack in a ScrollView.
 export default function App() {
   return (
-    <>
+    // reducedMotion="user": when the system's Reduce Motion is on, framer-motion skips
+    // movement (slides, scales) and keeps only fades, for every animation in the app.
+    <MotionConfig reducedMotion="user">
       <Navbar />
       {/* <main> is semantic HTML: it tells screen readers where the main content is. */}
       <main>
@@ -27,6 +30,6 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </MotionConfig>
   )
 }
