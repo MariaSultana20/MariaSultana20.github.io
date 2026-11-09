@@ -18,10 +18,10 @@ export const summary =
 
 // Files in public/ are served from the site root, so public/images/profile.jpg → /images/profile.jpg
 export const photo = {
-  src: '/images/profile.jpg',
+  src: '/images/profile-480.jpg',
   alt: 'Maria Sultana',
-  width: 722,
-  height: 1280,
+  width: 480,
+  height: 600,
 }
 
 // About-section stat counters.
