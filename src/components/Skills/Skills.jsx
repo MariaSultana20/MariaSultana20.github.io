@@ -74,7 +74,7 @@ export default function Skills() {
                 <SkillSphere
                   skills={sphereSkills}
                   // Sized so the widest labels stay inside the canvas even when they swing to the front edge.
-                  radius={isMobile ? 14 : 16}
+                  radius={isMobile ? 16 : 18}
                   fontSize={isMobile ? 1.8 : 1.4}
                   activeCategory={activeCategory}
                   autoRotate={!reduceMotion}
