@@ -34,10 +34,7 @@ A personal portfolio site for Maria Sultana. PLAN.md is the spec. It has every s
 - Projects:
   - `ProjectImage` renders `project.image`, or the category-icon placeholder when there is no image.
   - The project marked `featured: true` is shown above the filters and left out of the grid.
-- Competitive Programming:
-  - `useCodeforcesRating` fetches the live rating and caches it in `sessionStorage` under the key `codeforces:<handle>`.
-  - If the fetch fails, it falls back to `codeforcesFallback` in `data/contests.js`.
-  - Rank colours (`lib/codeforces.js`) follow Codeforces' own colours, lightened where needed so they're readable on the dark background.
+- Competitive Programming: the Codeforces and CodeChef cards are static data in `data/contests.js` (no API calls). Each card's link text is the handle, e.g. `@Maria_Sultana`.
 - Contact form:
   - It POSTs `FormData` to `https://formspree.io/f/<formspreeId>`. The honeypot is Formspree's `_gotcha` field.
   - While `formspreeId` in `links.js` is `null`, submitting shows a "not connected yet, email me" message instead of sending.
