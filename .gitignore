@@ -25,6 +25,3 @@ dist-ssr
 
 # Claude Code settings (local to each machine)
 .claude/
-
-# CV contains private contact details; keep it out of the public repo
-public/Maria-Sultana-CV.pdf
